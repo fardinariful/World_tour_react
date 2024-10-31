@@ -16,7 +16,10 @@ const Countries = () => {
 
         const handleclick2=country=>{
             console.log("Add these on your visited Country");
-            console.log(country);
+           // console.log(country);
+           const newvisitedCountries=[...visitedCountries,country];
+           setvisitedCountries(newvisitedCountries);
+
         }
     return (
         <div >
@@ -24,7 +27,14 @@ const Countries = () => {
             <h3>Countries:{countries.length}</h3>
             </div>
             <div>
-                <h5>Visited Countries</h5>
+                <h5>Visited Countries:{visitedCountries.length}</h5>
+                <ul>
+                    {
+                        visitedCountries.map(country=> <li key={country.cca3}>
+                            {country.name.common}
+                        </li>)
+                    }
+                </ul>
             </div>
             <div className="countries_container">
             {
